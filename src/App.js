@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Questionnaire from './Questionnaire';
+import Results from './Results';
+import diagnoseMentalHealth from './diagnosisAlgorithm'; // Assuming the correct path to DiagnosisAlgorithm.js
 
 function App() {
+  const [diagnosedDisorder, setDiagnosedDisorder] = useState(null);
+  const [showResults, setShowResults] = useState(false);
+
+  const handleQuestionnaireSubmit = (answers) => {
+    try {
+      // Use the imported diagnoseMentalHealth function
+      const { diagnosedDisorder } = diagnoseMentalHealth(answers);
+
+      console.log('Debugging - Diagnosis:', diagnosedDisorder);
+      setDiagnosedDisorder(diagnosedDisorder);
+      setShowResults(true);
+    } catch (error) {
+      console.error('Error submitting questionnaire:', error);
+      // Handle any specific error related to the diagnosis process
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showResults ? (
+        <Results diagnosedDisorder={diagnosedDisorder} />
+      ) : (
+        <Questionnaire onSubmit={handleQuestionnaireSubmit} />
+      )}
     </div>
   );
 }
