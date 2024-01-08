@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mental/static/css/main.b567849d.css",
+    "main.js": "/mental/static/js/main.4b1efac8.js",
+    "static/js/787.d98db99e.chunk.js": "/mental/static/js/787.d98db99e.chunk.js",
+    "index.html": "/mental/index.html",
+    "main.b567849d.css.map": "/mental/static/css/main.b567849d.css.map",
+    "main.4b1efac8.js.map": "/mental/static/js/main.4b1efac8.js.map",
+    "787.d98db99e.chunk.js.map": "/mental/static/js/787.d98db99e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b567849d.css",
+    "static/js/main.4b1efac8.js"
+  ]
+}
